@@ -68,9 +68,9 @@ fun MainContent(paddingValues: PaddingValues, navController: NavController, movi
     ) {
         LazyColumn {
             items(items = movieList) {
-                MovieRow(movieName = it){
+                MovieRow(movieName = it) { it ->
                     // Handle item click here
-                    navController.navigate(route = MovieScreen.MovieDetailsScreen.name)
+                    navController.navigate(route = MovieScreen.MovieDetailsScreen.name + "/$it")
                     println("Clicked on movie: $it")
                 }
             }

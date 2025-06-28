@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.rahul.movieapp.screens.home.HomeScreen
 import com.rahul.movieapp.screens.movie_details_screen.MovieDetailScreen
 
@@ -17,8 +18,17 @@ fun MovieNavigation() {
             HomeScreen(navController = navController)
         }
 
-        composable(route = MovieScreen.MovieDetailsScreen.name) {
-            MovieDetailScreen(navController = navController)
+        composable(route = MovieScreen.MovieDetailsScreen.name+"/{movieName}", arguments = listOf(
+            navArgument("movieName") {
+                defaultValue = "Unknown Movie"
+                type = androidx.navigation.NavType.StringType
+            }
+        )) {
+            it.arguments?.getString("movieName")?.let { movieName ->
+                println("Navigated to Movie Details Screen for: $movieName")
+                MovieDetailScreen(navController = navController,movieName)
+
+            }
         }
 
 
