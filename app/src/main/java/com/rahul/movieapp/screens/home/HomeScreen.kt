@@ -18,7 +18,7 @@ fun HomeScreen(navController: NavHostController) {
         topBar = {
             TopAppBar(
                 title = { Text("Movie App") },
-                colors = TopAppBarDefaults.mediumTopAppBarColors(
+                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primary
                 )
             )

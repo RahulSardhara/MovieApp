@@ -24,11 +24,7 @@ fun MovieNavigation() {
                 type = androidx.navigation.NavType.StringType
             }
         )) {
-            it.arguments?.getString("movieName")?.let { movieName ->
-                println("Navigated to Movie Details Screen for: $movieName")
-                MovieDetailScreen(navController = navController,movieName)
-
-            }
+            MovieDetailScreen(navController = navController,it.arguments?.getString("movieName") ?: "Unknown Movie")
         }
 
 
