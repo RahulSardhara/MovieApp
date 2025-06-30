@@ -58,9 +58,7 @@ import kotlinx.coroutines.delay
 @Preview
 fun MovieRow(movieName: Movie = getMovies()[0], onItemClick: (Movie) -> Unit = {}) {
 
-    var expanded by remember {
-        mutableStateOf(false)
-    }
+    var expanded by remember { mutableStateOf(false) }
 
     Card(
         modifier = Modifier
